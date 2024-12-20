@@ -29,3 +29,21 @@ class Category:
             cursor.execute(sql, (category_id,))
             conn.commit()
             return cursor.rowcount > 0
+        
+    @classmethod
+    def get_all(cls):
+        with create_conn() as conn:
+            cursor = conn.cursor()
+            sql = "SELECT * FROM categories"
+            cursor.execute(sql)
+            categories = cursor.fetchall()
+        return categories
+
+    @classmethod
+    def find_by_id(cls, category_id):
+        with create_conn() as conn:
+            cursor = conn.cursor()
+            sql = "SELECT * FROM categories WHERE id = ?"
+            cursor.execute(sql, (category_id,))
+            category = cursor.fetchone()
+        return category    
