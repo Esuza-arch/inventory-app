@@ -20,5 +20,14 @@ class User:
             cursor.execute(sql, (name, email))
             conn.commit()
             return cls.find_by_id(cursor.lastrowid)
-    
+
+    @classmethod
+    def delete(cls, user_id):
+        with create_conn as conn:
+            cursor = conn.cursor()
+            sql = "DELETE FROM users WHERE id = ?"
+            cursor.execute(sql, (user_id))
+            conn.commit()
+            return cursor.rowcount > 0
         
+            
