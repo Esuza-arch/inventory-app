@@ -40,4 +40,13 @@ class Product:
             sql = "SELECT * FROM products"
             cursor.execute(sql)
             products = cursor.fetchall()
-        return products        
+        return products   
+
+    @classmethod
+    def find_by_id(cls, product_id):
+        with create_conn() as conn:
+            cursor = conn.cursor()
+            sql = "SELECT * FROM products WHERE id = ?"
+            cursor.execute(sql, (product_id,))
+            product = cursor.fetchone()
+        return product     
