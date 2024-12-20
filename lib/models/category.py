@@ -20,3 +20,12 @@ class Category:
             conn.commit()
             category_id = cursor.lastrowid
         return cls.find_by_id(category_id)    
+    
+    @classmethod
+    def delete(cls, category_id):
+        with create_conn() as conn:
+            cursor = conn.cursor()
+            sql = "DELETE FROM categories WHERE id = ?"
+            cursor.execute(sql, (category_id,))
+            conn.commit()
+            return cursor.rowcount > 0
