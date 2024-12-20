@@ -23,3 +23,14 @@ class Product:
             conn.commit()
             product_id = cursor.lastrowid
         return cls.find_by_id(product_id)    
+
+    @classmethod
+    def delete(cls, product_id):
+        with create_conn() as conn:
+            cursor = conn.cursor()
+            sql = "DELETE FROM products WHERE id = ?"
+            cursor.execute(sql, (product_id,))
+            conn.commit()
+            return cursor.rowcount > 0
+     
+            
