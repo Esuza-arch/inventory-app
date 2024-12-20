@@ -1,4 +1,4 @@
-from db.database import create_conn
+from lib.db.database import create_conn
 
 class Product:
     @classmethod

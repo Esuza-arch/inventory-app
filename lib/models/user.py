@@ -1,4 +1,4 @@
-from db.database import create_conn
+from lib.db.database import create_conn
 
 class User:
     @classmethod
@@ -45,5 +45,5 @@ class User:
             sql = "SELECT * FROM users WHERE id = ?"
             cursor.execute(sql, (user_id))
             return cursor.fetchone()
-    
-           
+
+
