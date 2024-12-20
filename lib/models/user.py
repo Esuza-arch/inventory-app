@@ -29,5 +29,13 @@ class User:
             cursor.execute(sql, (user_id))
             conn.commit()
             return cursor.rowcount > 0
+
+    @classmethod
+    def get_all(cls):
+        with create_conn() as conn:
+            cursor = conn.cursor()
+            sql = "SELECT * FROM users"
+            cursor.execute(sql)
+            return cursor.fetchall()
+    
         
-            
