@@ -14,4 +14,12 @@ class Product:
         """
         cursor.execute(sql)
     
-        
+    @classmethod
+    def create(cls, name, price, category_id):
+        with create_conn() as conn:
+            cursor = conn.cursor()
+            sql = "INSERT INTO products (name, price, category_id) VALUES (?, ?, ?)"
+            cursor.execute(sql, (name, price, category_id))
+            conn.commit()
+            product_id = cursor.lastrowid
+        return cls.find_by_id(product_id)    
