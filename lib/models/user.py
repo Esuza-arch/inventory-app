@@ -37,5 +37,13 @@ class User:
             sql = "SELECT * FROM users"
             cursor.execute(sql)
             return cursor.fetchall()
+
+    @classmethod
+    def find_by_id(cls, user_id):
+        with create_conn() as conn:
+            cursor = conn.cursor()
+            sql = "SELECT * FROM users WHERE id = ?"
+            cursor.execute(sql, (user_id))
+            return cursor.fetchone()
     
-        
+           
