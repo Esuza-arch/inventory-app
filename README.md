@@ -1,172 +1,91 @@
-# Phase 3 CLI+ORM Project Template
+# Inventory App
 
-## Learning Goals
+#### The Inventory App is a Python-based console application that allows users to manage users, products, and categories in a simple inventory database. The app uses SQLite as its database and organizes functionality into different modules for easy maintainability.
 
-- Discuss the basic directory structure of a CLI.
-- Outline the first steps in building a CLI.
-
----
-
-## Introduction
-
-You now have a basic idea of what constitutes a CLI. Fork and clone this lesson
-for a project template for your CLI.
-
-Take a look at the directory structure:
-
-```console
-.
-├── Pipfile
-├── Pipfile.lock
-├── README.md
-└── lib
-    ├── models
-    │   ├── __init__.py
-    │   └── model_1.py
-    ├── cli.py
-    ├── debug.py
-    └── helpers.py
-```
-
-Note: The directory also includes two files named `CONTRIBUTING.md` and
-`LICENSE.md` that are specific to Flatiron's curriculum. You can disregard or
-delete the files if you want.
-
----
-
-## Generating Your Environment
-
-You might have noticed in the file structure- there's already a Pipfile!
-
-Install any additional dependencies you know you'll need for your project by
-adding them to the `Pipfile`. Then run the commands:
-
-```console
-pipenv install
-pipenv shell
-```
-
----
-
-## Generating Your CLI
-
-A CLI is, simply put, an interactive script and prompts the user and performs
-operations based on user input.
-
-The project template has a sample CLI in `lib/cli.py` that looks like this:
-
-```py
-# lib/cli.py
-
-from helpers import (
-    exit_program,
-    helper_1
-)
+#### By **Yakubu Esuza**
 
 
-def main():
-    while True:
-        menu()
-        choice = input("> ")
-        if choice == "0":
-            exit_program()
-        elif choice == "1":
-            helper_1()
-        else:
-            print("Invalid choice")
+## Features
+
+- **User Management**: Add, delete, view, and search for users.
+- **Product Management**: Add, delete, view, and search for products.
+- **Category Management**: Add, delete, view, and search for categories.
 
 
-def menu():
-    print("Please select an option:")
-    print("0. Exit the program")
-    print("1. Some useful function")
+## How to Use
+
+### Requirements
+
+- Python 3.8 or higher
+- Pipenv (for managing dependencies)
+- SQLite (built into Python)
+
+#### Installation Process
+
+1. Clone this repository using:
 
 
-if __name__ == "__main__":
-    main()
-```
+   ```bash
+   git@github.com:Esuza-arch/inventory-app.git
+   ```
 
-The helper functions are located in `lib/helpers.py`:
+2. Navigate to the project directory:
 
-```py
-# lib/helpers.py
+   ```bash
+   cd inventory-app
+   ```
 
-def helper_1():
-    print("Performing useful function#1.")
+3. Install the required dependencies:
+
+Install the required dependencies. If no dependencies are specified in the project, ensure you have Python's sqlite3 module available, as it is built-in for most installations.
+   ```bash
+   Pipenv install
+   Pipenv install sqlite3
+   ```
+
+4. Verify the project structure:
+
+Ensure the directory structure looks like this:
+inventory-management-system/
+|── app.py
+|── lib/
+    |── db/
+    |   ── database.py
+    |── models/
+        ── user.py
+        ── product.py
+        ── category.py
 
 
-def exit_program():
-    print("Goodbye!")
-    exit()
-```
+### Running the application
 
-You can run the template CLI with `python lib/cli.py`, or include the shebang
-and make it executable with `chmod +x`. The template CLI will ask for input, do
-some work, and accomplish some sort of task.
+Set the Working Directory: Ensure you are in the root directory (inventory-management-system) where app.py is located.
 
-Past that, CLIs can be whatever you'd like, as long as you follow the project
-requirements.
 
-Of course, you will update `lib/cli.py` with prompts that are appropriate for
-your application, and you will update `lib/helpers.py` to replace `helper_1()`
-with a useful function based on the specific problem domain you decide to
-implement, along with adding other helper functions to the module.
+Run the Application: Execute the following command in your terminal:
 
-In the `lib/models` folder, you should rename `model_1.py` with the name of a
-data model class from your specific problem domain, and add other classes to the
-folder as needed. The file `lib/models/__init__.py` has been initialized to
-create the necessary database constants. You need to add import statements to
-the various data model classes in order to use the database constants.
+```bash
+   python app.py
+   ```
 
-You are also welcome to implement a different module and directory structure.
-However, your project should be well organized, modular, and follow the design
-principal of separation of concerns, which means you should separate code
-related to:
 
-- User interface
-- Data persistence
-- Problem domain rules and logic
+Interact with the Application: Follow the on-screen prompts to navigate the menu and manage users, products, and categories.
 
----
 
-## Updating README.md
+## Support and Contact Details
 
-`README.md` is a Markdown file that should describe your project. You will
-replace the contents of this `README.md` file with a description of **your**
-actual project.
+If you have any questions, suggestions, or need assistance, please contact:
 
-Markdown is not a language that we cover in Flatiron's Software Engineering
-curriculum, but it's not a particularly difficult language to learn (if you've
-ever left a comment on Reddit, you might already know the basics). Refer to the
-cheat sheet in this assignments's resources for a basic guide to Markdown.
+- Email: <yakubuesuza@gmail.com>
 
-### What Goes into a README?
+## License
 
-This README serves as a template. Replace the contents of this file to describe
-the important files in your project and describe what they do. Each Python file
-that you edit should get at least a paragraph, and each function should be
-described with a sentence or two.
+MIT License
 
-Describe your actual CLI script first, and with a good level of detail. The rest
-should be ordered by importance to the user. (Probably functions next, then
-models.)
+Copyright &copy; 2024 Yakubu Esuza
 
-Screenshots and links to resources that you used throughout are also useful to
-users and collaborators, but a little more syntactically complicated. Only add
-these in if you're feeling comfortable with Markdown.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
----
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-## Conclusion
-
-A lot of work goes into a good CLI, but it all relies on concepts that you've
-practiced quite a bit by now. Hopefully this template and guide will get you off
-to a good start with your Phase 3 Project.
-
-Happy coding!
-
----
-
-## Resources
-
-- [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
