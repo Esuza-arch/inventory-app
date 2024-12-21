@@ -43,19 +43,6 @@ Install the required dependencies. If no dependencies are specified in the proje
    Pipenv install sqlite3
    ```
 
-4. Verify the project structure:
-
-Ensure the directory structure looks like this:
-inventory-management-system/
-- |── app.py
-- |── lib/
--    |── db/
--    |   ── database.py
--    |── models/
----        ── user.py
----       ── product.py
----        ── category.py
-
 
 ### Running the application
 
