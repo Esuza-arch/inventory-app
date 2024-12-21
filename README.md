@@ -47,14 +47,14 @@ Install the required dependencies. If no dependencies are specified in the proje
 
 Ensure the directory structure looks like this:
 inventory-management-system/
-|── app.py
-|── lib/
-    |── db/
-    |   ── database.py
-    |── models/
-        ── user.py
-        ── product.py
-        ── category.py
+- |── app.py
+- |── lib/
+-    |── db/
+-    |   ── database.py
+-    |── models/
+-        ── user.py
+-        ── product.py
+-        ── category.py
 
 
 ### Running the application
