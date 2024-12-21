@@ -52,9 +52,9 @@ inventory-management-system/
 -    |── db/
 -    |   ── database.py
 -    |── models/
---        ── user.py
---        ── product.py
---        ── category.py
+---        ── user.py
+---       ── product.py
+---        ── category.py
 
 
 ### Running the application
